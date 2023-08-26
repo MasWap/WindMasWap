@@ -1,3 +1,5 @@
+from typing import Optional
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -10,7 +12,7 @@ URLS_SPOT = {
 }
 
 
-def scrape_spot_page(spot_name: str) -> BeautifulSoup | None:
+def scrape_spot_page(spot_name: str) -> Optional[BeautifulSoup]:
     """Scrape the spot page.
 
     Args:
@@ -47,7 +49,7 @@ def get_data_from_last_reading_spot(spot_name: str) -> list:
             return cells
     return []
 
-def parse_data_from_last_reading(spot_name: str) -> dict | None:
+def parse_data_from_last_reading(spot_name: str) -> Optional[dict]:
     """Parse the data from the last reading of the spot.
 
     Returns:
